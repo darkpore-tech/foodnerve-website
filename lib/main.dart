@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodnerve_website/sections/footer.dart';
 import 'package:foodnerve_website/sections/section_three.dart';
-import 'package:foodnerve_website/sections/section_two.dart';
+// import 'package:foodnerve_website/sections/section_two.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -21,42 +21,55 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.orange,
+          scaffoldBackgroundColor: Colors.green,
         ).copyWith(
           textTheme:
               GoogleFonts.questrialTextTheme(Theme.of(context).textTheme),
         ),
         home: Scaffold(
-          extendBodyBehindAppBar: true,
+          // extendBodyBehindAppBar: true,
           appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(40.0),
+            preferredSize: const Size.fromHeight(50.0),
             child: AppBar(
-              // backgroundColor: Colors.white,
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    // do something
+                  },
+                )
+              ],
+              backgroundColor: Colors.transparent,
+              elevation: 0,
               title: const Text(
                 'FoodNerve',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16),
+                    fontSize: 18),
               ),
             ),
           ),
           // drawer: const Drawer(),
           body: SingleChildScrollView(
             child: Column(
-              children: const [MyHomePage(), Section2(), Section3(), Footer()],
+              children: const [MyHomePage(), Section3(), Footer()],
             ),
           ),
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green,
-            onPressed: () {
-              launchURL('https://wa.me/2348129976178');
-            },
-            tooltip: 'WhatsApp Us',
-            child: const Icon(
-              Icons.whatsapp,
-              color: Colors.white,
-            ),
-          ),
+          // floatingActionButton: FloatingActionButton(
+          //   backgroundColor: Colors.green,
+          //   onPressed: () {
+          //     launchURL('https://wa.me/2348129976178');
+          //   },
+          //   tooltip: 'WhatsApp Us',
+          //   child: const Icon(
+          //     Icons.whatsapp,
+          //     color: Colors.white,
+          //   ),
+          // ),
         ));
   }
 

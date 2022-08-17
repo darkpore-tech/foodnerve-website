@@ -8,18 +8,26 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.green,
       height: 50,
-      decoration: const BoxDecoration(color: Colors.transparent),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          TextButton(
-            style: TextButton.styleFrom(foregroundColor: Colors.black),
-            onPressed: () {},
-            child: const Text(
-              'FoodNerve © 2022',
+          TextButton.icon(
+            onPressed: () {
+              launchURL('https://wa.me/2348129976178');
+            },
+            icon: const Icon(
+              Icons.whatsapp,
+              color: Colors.white,
+              size: 10,
+            ),
+            label: const Text(
+              'Send us a whatsapp message',
               style: TextStyle(
                 fontSize: 10,
+                color: Colors.white,
+                decoration: TextDecoration.underline,
               ),
             ),
           ),

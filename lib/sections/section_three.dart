@@ -39,22 +39,40 @@ class _Section3State extends State<Section3> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text(
-          'See what we\'ve been up to ',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+          Colors.green,
+          Colors.orange,
+        ], stops: [
+          0.5,
+          1
+        ], begin: Alignment.topRight, end: Alignment.bottomLeft)),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Text(
+                'See what we\'ve been up to ',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10, bottom: 50),
+                child: YoutubePlayer(
+                  controller: controller,
+                ),
+              ),
+            ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 50, bottom: 50),
-          child: YoutubePlayer(
-            controller: controller,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
