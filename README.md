@@ -1,6 +1,6 @@
 # foodnerve_website
 
-A new Flutter project.
+FoodNerve Online
 
 ## Getting Started
 
