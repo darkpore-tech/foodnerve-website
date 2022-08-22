@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               spacer,
               const Text(
-                'The FoodNerve App brings all the best free food for easy pick up around you. We believe that everyday with FoodNerve is hunger free',
+                'The FoodNerve App brings all the best free food for easy pick up around you. We believe that everyday with FoodNerve is hunger free.',
                 style: TextStyle(color: Colors.white, fontSize: 15),
                 textAlign: TextAlign.center,
               ),

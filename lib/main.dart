@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               title: const Text(
-                'FoodNerve',
+                'FoodNerve OS',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
