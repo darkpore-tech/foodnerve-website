@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodnerve_website/sections/footer.dart';
 import 'package:foodnerve_website/sections/section_three.dart';
-// import 'package:foodnerve_website/sections/section_two.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
 import 'sections/section_one.dart';
 
 void main() {
@@ -45,7 +42,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               title: const Text(
-                'FoodNerve OS',
+                'FoodNerve',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -56,28 +53,13 @@ class MyApp extends StatelessWidget {
           // drawer: const Drawer(),
           body: SingleChildScrollView(
             child: Column(
-              children: const [MyHomePage(), Section3(), Footer()],
+              children: const [
+                MyHomePage(),
+                Section3(),
+                Footer(),
+              ],
             ),
           ),
-          // floatingActionButton: FloatingActionButton(
-          //   backgroundColor: Colors.green,
-          //   onPressed: () {
-          //     launchURL('https://wa.me/2348129976178');
-          //   },
-          //   tooltip: 'WhatsApp Us',
-          //   child: const Icon(
-          //     Icons.whatsapp,
-          //     color: Colors.white,
-          //   ),
-          // ),
         ));
-  }
-
-  launchURL(String url) async {
-    if (await canLaunchUrlString(url)) {
-      await launchURL(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }

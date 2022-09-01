@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -56,9 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               spacer,
               ElevatedButton(
-                onPressed: () {
-                  var url = "https://play.google.com";
-                  launchURL(url);
+                onPressed: () async {
+                  const url =
+                      'https://play.google.com/store/apps/details?id=com.foodnerveapp.food_nerve';
+                  if (await canLaunch(url)) {
+                    await launch(url);
+                  } else {
+                    throw 'Could not launch $url';
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.fromLTRB(45, 20, 45, 20),
@@ -72,49 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontSize: 10),
                 ),
               ),
-              // TextButton(
-              //   style: TextButton.styleFrom(
-              //       // foregroundColor: Colors.black,
-              //       shape: const StadiumBorder(),
-              //       // ignore: prefer_const_constructors
-              //       padding: const EdgeInsets.only(top: 10, bottom: 10),
-              //       textStyle: const TextStyle(
-              //           fontSize: 10, fontWeight: FontWeight.w600),
-              //       backgroundColor: Colors.white),
-              //   onPressed: () {
-              //     var url = "https://play.google.com";
-              //     launchURL(url);
-              //   },
-              //   child: const Text(
-              //     'Download App',
-              //   ),
-              // ),
-              // const Text(
-              //   'Download now!',
-              //   style: TextStyle(color: Colors.white, fontSize: 11),
-              // ),
-              // spacer,
-              // GestureDetector(
-              //   onTap: () {
-              //     launchURL('https://play.google.com/');
-              //   },
-              //   child: const Image(
-              //     image: AssetImage('assets/gplay.png'),
-              //     height: 60,
-              //   ),
-              // ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  launchURL(String url) async {
-    if (await canLaunchUrlString(url)) {
-      await launchURL(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }
